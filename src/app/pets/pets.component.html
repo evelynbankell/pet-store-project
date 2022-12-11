@@ -1,0 +1,41 @@
+<div class="container header-container">
+    <h1>See our pets</h1>
+</div>
+
+<div class="status-container">
+    <div class="container status-text">
+        <span class="status-title">Filter on availability: </span>
+        <div class="buttons">
+            <div class="btn status-btn" [ngClass]="{'selected-status': status === 'available'}"
+            (click)="onStatusClick('available')">Available</div>
+            <div class="btn status-btn" [ngClass]="{'selected-status': status === 'pending'}" 
+                (click)="onStatusClick('pending')">Pending</div>
+            <div class="btn status-btn" (click)="onStatusClick('sold')" 
+                [ngClass]="{'selected-status': status === 'sold'}">
+                    Sold
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div *ngIf="petsArray" class="container card-group">
+        <div *ngFor="let pet of petsArray" class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+                <img [src]="petImg" class="card-img-top" alt="Default pet"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{pet.name}}</h5>
+                        <span class="card-text">ID: {{pet.id}}</span>
+                        <p class="card-text">Status: {{pet.status}}</p>
+                    <div class="d-inline pr-2"  *ngFor="let tag of pet.tags" >
+                        <span *ngIf="tag.name !== 'string'" class="card-tags">#{{tag.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12" *ngIf="!petsArray || petsArray.length === 0">
+        <h2 class="container">No pets available right now</h2>
+    </div>
+</div>

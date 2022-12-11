@@ -1,0 +1,86 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.header-container {
+    margin-top: 48px;
+    margin-bottom: 56px;
+}
+
+.status-container {
+    background-color: #4294B8;
+    height: 55px;
+    align-items: center;
+    display: flex;
+
+    @include media-breakpoint-down(sm) {
+        height: 200px;
+        display: block;
+    }
+
+    .status-text {
+        color: white;
+
+        @include media-breakpoint-down(sm) {
+            display: contents;
+        }
+    }
+
+    .status-title {
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+        }
+    }
+
+    .buttons {
+        display: inline;
+        margin-left: 32px;
+        margin-right: 24px;
+
+        .status-btn {
+            color: white;
+            padding-left: 32px;
+            padding-right: 32px;
+            padding-top: 14px;
+            padding-bottom: 15px;
+            border-radius: 0;
+
+            @include media-breakpoint-down(sm) {
+                display: block;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            &:hover {
+                background-color: #306881;
+            }
+        }
+
+        .selected-status {
+            background-color: #306881;
+        }
+    }
+}
+
+.card-group {
+    margin-top: 46px;
+    .card {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .card-title {
+        text-transform: uppercase;
+    }
+
+    .card-img-top {
+        border: 10px solid #E9A136;
+    }
+
+    .card-tags {
+        font-style: italic;
+    }
+    
+}
